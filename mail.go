@@ -86,5 +86,7 @@ func (m mail) Notify(ver, info string) {
 	err = smtp.SendMail(m.Addr, m.auth, m.From, m.To, []byte(body))
 	if err != nil {
 		log.Fatal(err)
+	} else {
+		log.Printf("Notifications are sent to %s", m.ToString())
 	}
 }

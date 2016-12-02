@@ -39,9 +39,9 @@ func main() {
 
 	ver, info := getLastVersion()
 	if isNew(ver, *versionStorage) {
+		log.Printf("New version is available: %s", ver)
 		m.Notify(ver, info)
 		storeVersion(ver, *versionStorage)
-		log.Printf("New version is available: %s", ver)
 	} else {
 		log.Printf("Version isn't changed: %s", ver)
 	}
